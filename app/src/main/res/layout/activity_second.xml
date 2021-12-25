@@ -8,6 +8,7 @@
     tools:context=".SecondActivity">
 
     <TextView
+        android:id="@+id/number_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/teal_200"

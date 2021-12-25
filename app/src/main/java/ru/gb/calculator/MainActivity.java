@@ -5,41 +5,44 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String NUMBER_KEY = "number_key";
+    private static final String TAG = "@@@";
     private TextView screenCalculatorTextView;
-    private DataCalculator data;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initParametrs();
-        if (savedInstanceState != null && savedInstanceState.containsKey(NUMBER_KEY)) {
-            data.setNumberOnScreen(savedInstanceState.getString(NUMBER_KEY));
+        initParameters();
+        if (savedInstanceState != null && savedInstanceState.containsKey(SecondActivity.NUMBER_KEY)) {
+            SecondActivity.data = (DataCalculator) savedInstanceState.getParcelable(SecondActivity.NUMBER_KEY);
         }
+        Log.d(TAG,"MAIN onCreate   NUMBER_KEY="+SecondActivity.NUMBER_KEY+", data.number="+SecondActivity.data.getNumberOnScreen());
         showNumberOnTextView();
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        data.setNumberOnScreen(screenCalculatorTextView.getText().toString());
-        outState.putParcelable(NUMBER_KEY,data);
+        SecondActivity.data.setNumberOnScreen(screenCalculatorTextView.getText().toString());
+        Log.d(TAG,"MAIN onSave   NUMBER_KEY="+SecondActivity.NUMBER_KEY+", data.number="+SecondActivity.data.getNumberOnScreen());
+        outState.putParcelable(SecondActivity.NUMBER_KEY,SecondActivity.data);
     }
 
 
     private void showNumberOnTextView() {
-        screenCalculatorTextView.setText(data.getNumberOnScreen());
+        screenCalculatorTextView.setText(SecondActivity.data.getNumberOnScreen());
     }
 
 
-    private void initParametrs() {
+    private void initParameters() {
 
         final Button oneButton = findViewById(R.id.one_button);
         final Button twoButton = findViewById(R.id.two_button);
@@ -56,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         final Button deleteButton = findViewById(R.id.delete_button);
         final Button openSecondActivityButton = findViewById(R.id.open_second_activity);
         screenCalculatorTextView = findViewById(R.id.screen_calculator_textview);
-        data = new DataCalculator();
+        SecondActivity.data = new DataCalculator();
 
         oneButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,7 +148,8 @@ public class MainActivity extends AppCompatActivity {
         openSecondActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = SecondActivity.getIntentForLaunch(this, number);
+                Intent intent = SecondActivity.getIntentForLaunch(MainActivity.this);
+                SecondActivity.data.setNumberOnScreen(screenCalculatorTextView.getText().toString());
                 startActivity(intent);
             }
         });
