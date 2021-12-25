@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView screenCalculatorTextView = findViewById(R.id.screen_calculator_textview);
     //static String number
 
         @Override
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void initParametrs() {
-            final TextView screenCalculatorTextView = findViewById(R.id.screen_calculator_textview);
+
             final Button oneButton = findViewById(R.id.one_button);
             final Button twoButton = findViewById(R.id.two_button);
             final Button threeButton = findViewById(R.id.three_button);

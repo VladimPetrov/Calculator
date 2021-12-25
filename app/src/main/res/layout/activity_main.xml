@@ -14,6 +14,7 @@
         android:gravity="right"
         android:textSize="48sp"
         android:textStyle="bold"
+        android:background="@color/teal_200"
         app:layout_constraintBottom_toTopOf="@id/percent_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -238,7 +239,7 @@
         android:text="."
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/open_second_activity"
         app:layout_constraintEnd_toStartOf="@+id/zero_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seven_button" />
@@ -251,7 +252,7 @@
         android:text="⓪"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/open_second_activity"
         app:layout_constraintEnd_toEndOf="@+id/square_root_button"
         app:layout_constraintStart_toEndOf="@+id/separator_button"
         app:layout_constraintTop_toBottomOf="@+id/eight_button" />
@@ -264,7 +265,7 @@
         android:text="√"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/open_second_activity"
         app:layout_constraintEnd_toStartOf="@+id/multiplication_button"
         app:layout_constraintStart_toEndOf="@+id/zero_button"
         app:layout_constraintTop_toBottomOf="@+id/nine_button" />
@@ -277,10 +278,23 @@
         android:text="*"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/open_second_activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/square_root_button"
         app:layout_constraintTop_toBottomOf="@+id/division_button" />
+
+    <Button
+        android:id="@+id/open_second_activity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="OPEN SECONDARY ACTIVITY"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator_button"
+        app:layout_constraintWidth_percent="0.95" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
