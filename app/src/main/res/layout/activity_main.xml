@@ -11,10 +11,10 @@
         android:id="@+id/screen_calculator_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:textSize="48sp"
-        android:textStyle="bold"
         android:background="@color/background_screen_calculator_text_view"
+        android:gravity="right"
+        android:textSize="@dimen/screen_calculator_text_size"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/operation_percent_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,267 +23,237 @@
 
     </TextView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/operation_percent_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:text="@string/operation_percent"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/operation_button"
         app:layout_constraintBottom_toTopOf="@+id/digit_one_button"
         app:layout_constraintEnd_toStartOf="@+id/clear_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/screen_calculator_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/screen_calculator_text_view"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/clear_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:text="@string/clear_screen_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/operation_button"
         app:layout_constraintBottom_toTopOf="@+id/digit_two_button"
         app:layout_constraintEnd_toStartOf="@+id/delete_button"
         app:layout_constraintStart_toEndOf="@+id/operation_percent_button"
         app:layout_constraintTop_toBottomOf="@+id/screen_calculator_text_view" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/delete_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:text="@string/delete_one_symbol_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/operation_button"
         app:layout_constraintBottom_toTopOf="@+id/digit_three_button"
         app:layout_constraintEnd_toStartOf="@+id/equal_button"
         app:layout_constraintStart_toEndOf="@id/clear_button"
         app:layout_constraintTop_toBottomOf="@+id/screen_calculator_text_view" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/equal_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:text="@string/equal_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/operation_button"
         app:layout_constraintBottom_toTopOf="@+id/operation_plus_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/delete_button"
         app:layout_constraintTop_toBottomOf="@+id/screen_calculator_text_view" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_one_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:text="@string/digit_one_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/digital_button"
         app:layout_constraintBottom_toTopOf="@+id/digit_four_button"
         app:layout_constraintEnd_toStartOf="@+id/digit_two_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/operation_percent_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_two_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+
         android:text="@string/digit_two_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/digital_button"
         app:layout_constraintBottom_toTopOf="@+id/digit_five_button"
         app:layout_constraintEnd_toStartOf="@+id/digit_three_button"
         app:layout_constraintStart_toEndOf="@+id/digit_one_button"
         app:layout_constraintTop_toBottomOf="@id/clear_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_three_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+
         android:text="@string/digit_three_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/digital_button"
         app:layout_constraintBottom_toTopOf="@+id/digit_six_button"
         app:layout_constraintEnd_toStartOf="@+id/operation_plus_button"
         app:layout_constraintStart_toEndOf="@+id/digit_two_button"
         app:layout_constraintTop_toBottomOf="@+id/delete_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/operation_plus_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:text="@string/operation_plus_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/operation_button"
         app:layout_constraintBottom_toTopOf="@+id/operation_minus_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/digit_three_button"
         app:layout_constraintTop_toBottomOf="@+id/equal_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_four_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+
         android:text="@string/digit_four_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/digital_button"
         app:layout_constraintBottom_toTopOf="@+id/digit_seven_button"
         app:layout_constraintEnd_toStartOf="@+id/digit_five_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/digit_two_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_five_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+
         android:text="@string/digit_five_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/digital_button"
         app:layout_constraintBottom_toTopOf="@+id/digit_eight_button"
         app:layout_constraintEnd_toStartOf="@id/digit_six_button"
         app:layout_constraintStart_toEndOf="@+id/digit_four_button"
         app:layout_constraintTop_toBottomOf="@+id/digit_two_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_six_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:text="@string/digit_six_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/digital_button"
         app:layout_constraintBottom_toTopOf="@+id/digit_nine_button"
         app:layout_constraintEnd_toStartOf="@id/operation_minus_button"
         app:layout_constraintStart_toEndOf="@+id/digit_five_button"
         app:layout_constraintTop_toBottomOf="@+id/digit_three_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/operation_minus_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:text="@string/operation_minus_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/operation_button"
         app:layout_constraintBottom_toTopOf="@+id/operation_division_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/digit_six_button"
         app:layout_constraintTop_toBottomOf="@+id/operation_plus_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_seven_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:text="@string/digit_seven_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/digital_button"
         app:layout_constraintBottom_toTopOf="@+id/separator_button"
         app:layout_constraintEnd_toStartOf="@+id/digit_eight_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/digit_four_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_eight_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+
         android:text="@string/digit_eight_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/digital_button"
         app:layout_constraintBottom_toTopOf="@+id/digit_zero_button"
         app:layout_constraintEnd_toStartOf="@id/digit_nine_button"
         app:layout_constraintStart_toEndOf="@+id/digit_seven_button"
         app:layout_constraintTop_toBottomOf="@+id/digit_five_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_nine_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+
         android:text="@string/digit_nine_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/digital_button"
         app:layout_constraintBottom_toTopOf="@+id/operation_square_root_button"
         app:layout_constraintEnd_toStartOf="@id/operation_division_button"
         app:layout_constraintStart_toEndOf="@+id/digit_eight_button"
         app:layout_constraintTop_toBottomOf="@+id/digit_six_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/operation_division_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:text="@string/operation_division_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/operation_button"
         app:layout_constraintBottom_toTopOf="@+id/operation_multiplication_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/digit_nine_button"
         app:layout_constraintTop_toBottomOf="@+id/operation_minus_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/separator_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+
         android:text="@string/separator_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/digital_button"
         app:layout_constraintBottom_toBottomOf="@id/open_second_activity"
         app:layout_constraintEnd_toStartOf="@+id/digit_zero_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/digit_seven_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/digit_zero_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+
         android:text="@string/digit_zero_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/digital_button"
         app:layout_constraintBottom_toTopOf="@id/open_second_activity"
         app:layout_constraintEnd_toEndOf="@+id/operation_square_root_button"
         app:layout_constraintStart_toEndOf="@+id/separator_button"
         app:layout_constraintTop_toBottomOf="@+id/digit_eight_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/operation_square_root_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+
         android:text="@string/operation_square_root_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/operation_button"
         app:layout_constraintBottom_toTopOf="@id/open_second_activity"
         app:layout_constraintEnd_toStartOf="@+id/operation_multiplication_button"
         app:layout_constraintStart_toEndOf="@+id/digit_zero_button"
         app:layout_constraintTop_toBottomOf="@+id/digit_nine_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/operation_multiplication_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+
         android:text="@string/operation_multiplication_button"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/operation_button"
         app:layout_constraintBottom_toTopOf="@id/open_second_activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/operation_square_root_button"
         app:layout_constraintTop_toBottomOf="@+id/operation_division_button" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/open_second_activity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

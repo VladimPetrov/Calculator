@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="operation_button">
+        <item name="android:layout_margin">@dimen/layout_margin</item>
+        <item name="android:textSize">@dimen/text_size_button</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">@color/background_operation_button</item>
+        <item name="cornerRadius">@dimen/corner_radius_button</item>
+        <item name="strokeColor">@color/stroke_operation_color</item>
+        <item name="strokeWidth">@dimen/stroke_width</item>
+    </style>
+    <style name="digital_button">
+        <item name="android:layout_margin">@dimen/layout_margin</item>
+        <item name="android:textSize">@dimen/text_size_button</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">@color/background_digital_button</item>
+        <item name="cornerRadius">@dimen/corner_radius_button</item>
+        <item name="strokeColor">@color/stroke_digital_color</item>
+        <item name="strokeWidth">@dimen/stroke_width</item>
+    </style>
+</resources>
