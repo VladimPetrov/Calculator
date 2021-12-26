@@ -44,21 +44,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void initParameters() {
 
-        final Button oneButton = findViewById(R.id.one_button);
-        final Button twoButton = findViewById(R.id.two_button);
-        final Button threeButton = findViewById(R.id.three_button);
-        final Button fourButton = findViewById(R.id.four_button);
-        final Button fiveButton = findViewById(R.id.five_button);
-        final Button sixButton = findViewById(R.id.six_button);
-        final Button sevenButton = findViewById(R.id.seven_button);
-        final Button eightButton = findViewById(R.id.eight_button);
-        final Button nineButton = findViewById(R.id.nine_button);
-        final Button zeroButton = findViewById(R.id.zero_button);
+        final Button oneButton = findViewById(R.id.digit_one_button);
+        final Button twoButton = findViewById(R.id.digit_two_button);
+        final Button threeButton = findViewById(R.id.digit_three_button);
+        final Button fourButton = findViewById(R.id.digit_four_button);
+        final Button fiveButton = findViewById(R.id.digit_five_button);
+        final Button sixButton = findViewById(R.id.digit_six_button);
+        final Button sevenButton = findViewById(R.id.digit_seven_button);
+        final Button eightButton = findViewById(R.id.digit_eight_button);
+        final Button nineButton = findViewById(R.id.digit_nine_button);
+        final Button zeroButton = findViewById(R.id.digit_zero_button);
         final Button separatorButton = findViewById(R.id.separator_button);
-        final Button clearButton = findViewById(R.id.сlear_button);
+        final Button clearButton = findViewById(R.id.clear_button);
         final Button deleteButton = findViewById(R.id.delete_button);
         final Button openSecondActivityButton = findViewById(R.id.open_second_activity);
-        screenCalculatorTextView = findViewById(R.id.screen_calculator_textview);
+        screenCalculatorTextView = findViewById(R.id.screen_calculator_text_view);
         SecondActivity.data = new DataCalculator();
 
         oneButton.setOnClickListener(new View.OnClickListener() {
