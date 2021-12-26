@@ -1,4 +1,25 @@
 <resources>
     <string name="app_name">Calculator</string>
     <string name="open_secondary_activity_text_button">OPEN SECONDARY ACTIVITY</string>
+    <string name="operation_percent" translatable="false">%</string>
+    <string name="clear_screen_button" translatable="false">C</string>
+    <string name="delete_one_symbol_button" translatable="false">DEL</string>
+    <string name="equal_button" translatable="false">=</string>
+    <string name="digit_one_button" translatable="false">⓵</string>
+    <string name="digit_two_button" translatable="false">⓶</string>
+    <string name="digit_three_button" translatable="false">⓷</string>
+    <string name="operation_plus_button" translatable="false">+</string>
+    <string name="digit_four_button" translatable="false">⓸</string>
+    <string name="digit_five_button" translatable="false">⓹</string>
+    <string name="digit_six_button" translatable="false">⓺</string>
+    <string name="operation_minus_button" translatable="false">-</string>
+    <string name="digit_seven_button" translatable="false">⓻</string>
+    <string name="digit_eight_button" translatable="false">⓼</string>
+    <string name="digit_nine_button" translatable="false">⓽</string>
+    <string name="operation_division_button" translatable="false">/</string>
+    <string name="separator_button" translatable="false">.</string>
+    <string name="digit_zero_button" translatable="false">⓪</string>
+    <string name="operation_square_root_button" translatable="false">√</string>
+    <string name="operation_multiplication_button" translatable="false">*</string>
+
 </resources>

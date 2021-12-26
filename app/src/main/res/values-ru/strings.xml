@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Калькулятор</string>
+    <string name="open_secondary_activity_text_button">ОТКРЫТЬ ВТОРУЮ ACTIVITY</string>
+</resources>
