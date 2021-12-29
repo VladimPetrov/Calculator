@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private Button plusButton;
     private Button divisionButton;
     private Button multiplicationButton;
+    private Button equalButton;
     private Button openSecondActivityButton;
 
 
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         plusButton = findViewById(R.id.operation_plus_button);
         divisionButton = findViewById(R.id.operation_division_button);
         multiplicationButton = findViewById(R.id.operation_multiplication_button);
+        equalButton = findViewById(R.id.equal_button);
         openSecondActivityButton = findViewById(R.id.open_second_activity);
         screenCalculatorTextView = findViewById(R.id.screen_calculator_text_view);
         SecondActivity.data = new DataCalculator();
@@ -109,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         plusButton.setOnClickListener(view -> updateInput(InputSymbol.OP_PLUS));
         divisionButton.setOnClickListener(view -> updateInput(InputSymbol.OP_DIV));
         multiplicationButton.setOnClickListener(view -> updateInput(InputSymbol.OP_MUL));
+        equalButton.setOnClickListener(view -> updateInput(InputSymbol.EQUAL));
         openSecondActivityButton.setOnClickListener(view -> {
             Intent intent = SecondActivity.getIntentForLaunch(MainActivity.this);
             SecondActivity.data.setNumberOnScreen(screenCalculatorTextView.getText().toString());
@@ -118,8 +121,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void updateInput(InputSymbol input) {
         calculatorModel.onClickButton(input);
-        List<InputSymbol> inputSymbolList = calculatorModel.getInput();
-        screenCalculatorTextView.setText(convertInputSymbolsToString(inputSymbolList));
+        screenCalculatorTextView.setText(calculatorModel.getInput());
     }
 
     private String convertInputSymbolsToString(List<InputSymbol> inputSymbolList) {

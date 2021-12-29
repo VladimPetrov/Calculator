@@ -17,6 +17,12 @@ public class FloatState extends BaseState{
             case NUM_1:
             case NUM_2:
             case NUM_3:
+            case NUM_4:
+            case NUM_5:
+            case NUM_6:
+            case NUM_7:
+            case NUM_8:
+            case NUM_9:
                 input.add(inputSymbol);
                 return this;
             case CLEAR:
