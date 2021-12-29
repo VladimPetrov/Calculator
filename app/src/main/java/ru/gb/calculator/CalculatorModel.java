@@ -10,9 +10,9 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
+
 
 import ru.gb.calculator.entites.InputSymbol;
 import ru.gb.calculator.states.BaseState;
@@ -58,16 +58,16 @@ public class CalculatorModel {
         switch (operation) {
             case OP_MINUS:
                 result = String.valueOf(Float.parseFloat(firstNumber) - Float.parseFloat(returnNumber()));
-                return;
+                break;
             case OP_PLUS:
                 result = String.valueOf(Float.parseFloat(firstNumber) + Float.parseFloat(returnNumber()));
-                return;
+                break;
             case OP_MUL:
                 result = String.valueOf(Float.parseFloat(firstNumber) * Float.parseFloat(returnNumber()));
-                return;
+                break;
             case OP_DIV:
                 result = String.valueOf(Float.parseFloat(firstNumber) / Float.parseFloat(returnNumber()));
-                return;
+                break;
         }
     }
 
@@ -78,7 +78,7 @@ public class CalculatorModel {
     }
 
     public String getInput() {
-        if (result == "" ) {
+        if (result.equals("")) {
             return returnNumber();
         }
         return result;
