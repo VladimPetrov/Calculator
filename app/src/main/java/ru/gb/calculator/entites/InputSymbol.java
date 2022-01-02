@@ -8,6 +8,7 @@ public enum InputSymbol {
     DOT, CLEAR, DEL_SYMBOL,
     OP_MINUS,OP_PLUS,
     OP_DIV,OP_MUL,
+    OP_SQRT,
     EQUAL,
     UNDEFINED
 }

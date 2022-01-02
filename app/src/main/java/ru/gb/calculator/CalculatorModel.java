@@ -5,6 +5,7 @@ import static ru.gb.calculator.entites.InputSymbol.OP_DIV;
 import static ru.gb.calculator.entites.InputSymbol.OP_MINUS;
 import static ru.gb.calculator.entites.InputSymbol.OP_MUL;
 import static ru.gb.calculator.entites.InputSymbol.OP_PLUS;
+import static ru.gb.calculator.entites.InputSymbol.OP_SQRT;
 
 import android.util.Log;
 
@@ -19,7 +20,7 @@ import ru.gb.calculator.states.BaseState;
 import ru.gb.calculator.states.SignState;
 
 public class CalculatorModel {
-    private final List<InputSymbol> operatorList = new ArrayList<>(Arrays.asList(OP_MINUS, OP_PLUS, OP_DIV, OP_MUL));
+    private final List<InputSymbol> operatorList = new ArrayList<>(Arrays.asList(OP_MINUS, OP_PLUS, OP_DIV, OP_MUL, OP_SQRT));
     private String firstNumber = "";
     private String result = "";
     private InputSymbol operation = null;
@@ -33,9 +34,15 @@ public class CalculatorModel {
 
         if (checkOperator(inputSymbol) & operation == null) {
             Log.d("@@@", "Operation = " + inputSymbol.name());
+
             firstNumber = returnNumber();
             currentState = new SignState();
             operation = inputSymbol;
+            if (inputSymbol == OP_SQRT) {
+              calculations();
+                firstNumber = "";
+                operation = null;
+            }
             return;
         }
         if ((inputSymbol == EQUAL) & (operation != null)) {
@@ -67,6 +74,9 @@ public class CalculatorModel {
                 break;
             case OP_DIV:
                 result = String.valueOf(Float.parseFloat(firstNumber) / Float.parseFloat(returnNumber()));
+                break;
+            case OP_SQRT:
+                result = String.valueOf(Math.sqrt(Float.parseFloat(firstNumber)));
                 break;
         }
     }

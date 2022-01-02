@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private Button plusButton;
     private Button divisionButton;
     private Button multiplicationButton;
+    private Button squareRootButton;
     private Button equalButton;
     private Button openSecondActivityButton;
 
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         plusButton = findViewById(R.id.operation_plus_button);
         divisionButton = findViewById(R.id.operation_division_button);
         multiplicationButton = findViewById(R.id.operation_multiplication_button);
+        squareRootButton = findViewById(R.id.operation_square_root_button);
         equalButton = findViewById(R.id.equal_button);
         openSecondActivityButton = findViewById(R.id.open_second_activity);
         screenCalculatorTextView = findViewById(R.id.screen_calculator_text_view);
@@ -111,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
         plusButton.setOnClickListener(view -> updateInput(InputSymbol.OP_PLUS));
         divisionButton.setOnClickListener(view -> updateInput(InputSymbol.OP_DIV));
         multiplicationButton.setOnClickListener(view -> updateInput(InputSymbol.OP_MUL));
+        squareRootButton.setOnClickListener(view -> updateInput(InputSymbol.OP_SQRT));
         equalButton.setOnClickListener(view -> updateInput(InputSymbol.EQUAL));
         openSecondActivityButton.setOnClickListener(view -> {
             Intent intent = SecondActivity.getIntentForLaunch(MainActivity.this);
