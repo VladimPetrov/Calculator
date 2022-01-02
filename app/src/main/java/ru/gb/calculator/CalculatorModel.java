@@ -1,5 +1,6 @@
 package ru.gb.calculator;
 
+import static ru.gb.calculator.entites.InputSymbol.DEL_SYMBOL;
 import static ru.gb.calculator.entites.InputSymbol.DOT;
 import static ru.gb.calculator.entites.InputSymbol.EQUAL;
 import static ru.gb.calculator.entites.InputSymbol.NUM_0;
@@ -148,6 +149,11 @@ public class CalculatorModel implements Parcelable {
             result = "";
         }
 
+        if (inputSymbol == DEL_SYMBOL) {
+            deleteSymbol();
+            return;
+        }
+
         if (checkOperator(inputSymbol) & operation == null) {
             Log.d("@@@", "Operation = " + inputSymbol.name());
             firstNumber = returnNumber();
@@ -179,6 +185,25 @@ public class CalculatorModel implements Parcelable {
         Log.d("@@@", "New state = " + newState.getClass().getSimpleName());
         Log.d("@@@", "\n");
         currentState = newState;
+    }
+
+    private void deleteSymbol(){
+        List<InputSymbol> input = currentState.getInput();
+        if (input.get(input.size()-1) == DOT) {
+                input.remove(input.size()-1);
+                currentState = new IntState(input);
+        }
+        if(currentState.getClass().getSimpleName().equals("FirstIntState")) {
+            currentState = new SignState();
+        }
+        if(currentState.getClass().getSimpleName().equals("IntState")) {
+            input.remove(input.size()-1);
+            currentState = new IntState(input);
+        }
+        if(currentState.getClass().getSimpleName().equals("FloatState")) {
+            input.remove(input.size()-1);
+            currentState = new FloatState(input);
+        }
     }
 
     private void percentCalculations() {
