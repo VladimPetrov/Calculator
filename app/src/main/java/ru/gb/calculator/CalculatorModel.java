@@ -4,6 +4,7 @@ import static ru.gb.calculator.entites.InputSymbol.EQUAL;
 import static ru.gb.calculator.entites.InputSymbol.OP_DIV;
 import static ru.gb.calculator.entites.InputSymbol.OP_MINUS;
 import static ru.gb.calculator.entites.InputSymbol.OP_MUL;
+import static ru.gb.calculator.entites.InputSymbol.OP_PERCENT;
 import static ru.gb.calculator.entites.InputSymbol.OP_PLUS;
 import static ru.gb.calculator.entites.InputSymbol.OP_SQRT;
 
@@ -20,7 +21,7 @@ import ru.gb.calculator.states.BaseState;
 import ru.gb.calculator.states.SignState;
 
 public class CalculatorModel {
-    private final List<InputSymbol> operatorList = new ArrayList<>(Arrays.asList(OP_MINUS, OP_PLUS, OP_DIV, OP_MUL, OP_SQRT));
+    private final List<InputSymbol> operatorList = new ArrayList<>(Arrays.asList(OP_MINUS, OP_PLUS, OP_DIV, OP_MUL, OP_SQRT, OP_PERCENT));
     private String firstNumber = "";
     private String result = "";
     private InputSymbol operation = null;
@@ -39,18 +40,23 @@ public class CalculatorModel {
             currentState = new SignState();
             operation = inputSymbol;
             if (inputSymbol == OP_SQRT) {
-              calculations();
-                firstNumber = "";
-                operation = null;
+                baseCalculations();
             }
             return;
         }
         if ((inputSymbol == EQUAL) & (operation != null)) {
-            Log.d("@@@", "On Click Button EQUAL FirstNumber="+firstNumber);
-            calculations();
-            firstNumber = "";
-            currentState = new SignState();
-            operation = null;
+            Log.d("@@@", "On Click Button EQUAL FirstNumber=" + firstNumber);
+            baseCalculations();
+            return;
+        }
+        if ((inputSymbol == OP_PERCENT) & (operation == OP_MUL)) {
+            Log.d("@@@", "On Click Button PERCENT FirstNumber=" + firstNumber + "  SecondNumber=" + returnNumber());
+            percentCalculations();
+            return;
+        }
+        if ((inputSymbol == OP_PERCENT) & (operation == OP_PLUS)) {
+            Log.d("@@@", "On Click Button PERCENT FirstNumber=" + firstNumber + "  SecondNumber=" + returnNumber());
+            percentCalculations();
             return;
         }
         BaseState newState = currentState.onClickButton(inputSymbol);
@@ -61,7 +67,21 @@ public class CalculatorModel {
         currentState = newState;
     }
 
-    private void calculations() {
+    private void percentCalculations() {
+        switch (operation) {
+            case OP_PLUS:
+                result = String.valueOf(Float.parseFloat(firstNumber) + ((Float.parseFloat(firstNumber) / 100) * Float.parseFloat(returnNumber())));
+                break;
+            case OP_MUL:
+                result = String.valueOf((Float.parseFloat(firstNumber) / 100) * Float.parseFloat(returnNumber()));
+                break;
+        }
+        firstNumber = "";
+        currentState = new SignState();
+        operation = null;
+    }
+
+    private void baseCalculations() {
         switch (operation) {
             case OP_MINUS:
                 result = String.valueOf(Float.parseFloat(firstNumber) - Float.parseFloat(returnNumber()));
@@ -79,6 +99,9 @@ public class CalculatorModel {
                 result = String.valueOf(Math.sqrt(Float.parseFloat(firstNumber)));
                 break;
         }
+        firstNumber = "";
+        currentState = new SignState();
+        operation = null;
     }
 
     private boolean checkOperator(InputSymbol inputSymbol) {
