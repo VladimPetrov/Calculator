@@ -11,7 +11,7 @@
         android:id="@+id/number_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/teal_200"
+        android:background="@color/background_screen_calculator_text_view"
         android:gravity="center"
         android:text="Default text"
         android:textSize="48sp"

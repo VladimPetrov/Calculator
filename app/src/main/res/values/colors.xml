@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background_screen_calculator_text_view">#0BBCAB</color>
+    <color name="background_digital_button">#42A1ED</color>
+    <color name="background_operation_button">#F3BC6C</color>
+    <color name="stroke_operation_color">#EA427B</color>
+    <color name="stroke_digital_color">#8F909E</color>
 </resources>
