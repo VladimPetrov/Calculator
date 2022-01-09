@@ -130,6 +130,7 @@ public class CalculatorModel implements Parcelable {
     }
 
     private Byte operationToByte () {
+        if (operation == null) return 0;
         switch (operation) {
             case OP_MINUS:
                 return 1;

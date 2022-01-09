@@ -29,11 +29,7 @@ public class SecondActivity extends Activity {
         super.onSaveInstanceState(outState);
         outState.putParcelable(SecondActivity.NUMBER_KEY,calculatorModel);
     }
-    public static Intent getIntentForLaunch(Context context) {
-        Intent intent = new Intent(context, SecondActivity.class);
-        intent.putExtra(NUMBER_KEY,calculatorModel);
-        return intent;
-    }
+
     private void initParameters() {
         numberTextView = findViewById(R.id.number_text_view);
         numberTextView.setText(calculatorModel.getInput());

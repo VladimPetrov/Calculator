@@ -3,6 +3,7 @@ package ru.gb.calculator;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +18,7 @@ import ru.gb.calculator.entites.InputSymbol;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "@@@";
-    //private CalculatorModel calculatorModel;
+    private CalculatorModel calculatorModel;
     private TextView screenCalculatorTextView;
     private Button oneButton;
     private Button twoButton;
@@ -48,21 +49,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initParameters();
         initListeners();
+        initModel();
         if (savedInstanceState != null && savedInstanceState.containsKey(SecondActivity.NUMBER_KEY)) {
-            SecondActivity.calculatorModel = (CalculatorModel) savedInstanceState.getParcelable(SecondActivity.NUMBER_KEY);
+            calculatorModel = (CalculatorModel) savedInstanceState.getParcelable(SecondActivity.NUMBER_KEY);
         }
-        screenCalculatorTextView.setText(SecondActivity.calculatorModel.getInput());
+        screenCalculatorTextView.setText(calculatorModel.getInput());
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(SecondActivity.NUMBER_KEY, SecondActivity.calculatorModel);
+        outState.putParcelable(SecondActivity.NUMBER_KEY, calculatorModel);
     }
 
+    private void initModel() {
+        calculatorModel = new CalculatorModel();
+    }
 
     private void initParameters() {
-
         oneButton = findViewById(R.id.digit_one_button);
         twoButton = findViewById(R.id.digit_two_button);
         threeButton = findViewById(R.id.digit_three_button);
@@ -85,8 +89,6 @@ public class MainActivity extends AppCompatActivity {
         equalButton = findViewById(R.id.equal_button);
         openSecondActivityButton = findViewById(R.id.open_second_activity);
         screenCalculatorTextView = findViewById(R.id.screen_calculator_text_view);
-        SecondActivity.calculatorModel = new CalculatorModel();
-
     }
 
     public void initListeners() {
@@ -111,15 +113,22 @@ public class MainActivity extends AppCompatActivity {
         percentButton.setOnClickListener(view -> updateInput(InputSymbol.OP_PERCENT));
         equalButton.setOnClickListener(view -> updateInput(InputSymbol.EQUAL));
         openSecondActivityButton.setOnClickListener(view -> {
-            Intent intent = SecondActivity.getIntentForLaunch(MainActivity.this);
+            Intent intent = getIntentForLaunch(MainActivity.this);
+            Log.d("@@@", "Intent create - OK! ");
             startActivity(intent);
         });
 
     }
 
     private void updateInput(InputSymbol input) {
-        SecondActivity.calculatorModel.onClickButton(input);
-        screenCalculatorTextView.setText(SecondActivity.calculatorModel.getInput());
+        calculatorModel.onClickButton(input);
+        screenCalculatorTextView.setText(calculatorModel.getInput());
+    }
+
+    private Intent getIntentForLaunch(Context context) {
+        Intent intent = new Intent(context, SecondActivity.class);
+        intent.putExtra(SecondActivity.NUMBER_KEY,calculatorModel);
+        return intent;
     }
 
     private String convertInputSymbolsToString(List<InputSymbol> inputSymbolList) {
